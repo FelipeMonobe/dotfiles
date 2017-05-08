@@ -1,0 +1,4 @@
+Plugin 'ghcmod-vim'
+Plugin 'haskellmode-vim'
+Plugin 'editorconfig/editorconfig-vim'
+
