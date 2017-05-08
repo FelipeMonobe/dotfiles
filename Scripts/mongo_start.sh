@@ -1,1 +1,1 @@
-sudo mongod --dbpath=/var/lib/mongodb
+mongod --dbpath=/var/lib/mongodb

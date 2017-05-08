@@ -1,1 +1,1 @@
-sudo systemctl start redis.service
+systemctl start redis.service

@@ -1,1 +1,1 @@
-sudo mysql -u nodebr -p
+mysql -u nodebr -p

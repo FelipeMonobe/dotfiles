@@ -1,3 +1,3 @@
-sudo rm /var/lib/dhcpcd/dhcpcd-*
-sudo rm /etc/netctl/wlp7s0-*
-sudo systemctl restart netctl
+ rm /var/lib/dhcpcd/dhcpcd-*
+ rm /etc/netctl/wlp7s0-*
+ systemctl restart netctl
