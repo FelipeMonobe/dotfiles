@@ -37,6 +37,6 @@ Config { font        = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
         , hideOnStart      = False   
         , allDesktops      = True    
         , overrideRedirect = False
-        , pickBroadest     = True   
+        , pickBroadest     = False
         , persistent       = True    
         }

@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.35 for xinube on Fri Sep 23 14:19:20 2016.
+# Written by xscreensaver-demo 5.36 for xinube on Tue May  9 12:52:51 2017.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:10:00
@@ -32,18 +32,22 @@ dpmsOff:	4:00:00
 grabDesktopImages:  False
 grabVideoFrames:    False
 chooseRandomImages: False
-imageDirectory:	
+imageDirectory:
 
 mode:		one
-selected:	51
+selected:	0
 
 textMode:	url
 textLiteral:	XScreenSaver
-textFile:	
+textFile:
 textProgram:	fortune
 textURL:	https://en.wikipedia.org/w/index.php?title=Special:NewPages&feed=rss
 
 programs:								      \
+		    "Zombies" 	mplayer -nosound -really-quiet -nolirc	      \
+				  -nostop-xscreensaver -wid		      \
+				  $XSCREENSAVER_WINDOW -fs -loop 0	      \
+				  $HOME/Downloads/Zombie-Invasion-3.mp4	    \n\
 				maze -root				    \n\
 				electricsheep --root 1			    \n\
   GL: 				superquadrics -root			    \n\
@@ -64,7 +68,7 @@ programs:								      \
 				slidescreen -root			    \n\
 				pedal -root				    \n\
 				bouboule -root				    \n\
-				braid -root				    \n\
+-				braid -root				    \n\
 				coral -root				    \n\
 				deco -root				    \n\
 				drift -root				    \n\
@@ -95,8 +99,7 @@ programs:								      \
 				xjack -root				    \n\
 				xlyap -root				    \n\
   GL: 				atlantis -root				    \n\
-				bsod -root -delay 600 -atari -bsd	      \
-				  -sparclinux				    \n\
+				bsod -root				    \n\
   GL: 				bubble3d -root				    \n\
   GL: 				cage -root				    \n\
 -				crystal -root				    \n\
@@ -173,7 +176,7 @@ programs:								      \
   GL: 				spheremonics -root			    \n\
 -				thornbird -root				    \n\
 				twang -root				    \n\
-  GL: 				antspotlight -root			    \n\
+- GL: 				antspotlight -root			    \n\
 				apple2 -root				    \n\
   GL: 				atunnel -root				    \n\
 				barcode -root				    \n\
@@ -202,7 +205,7 @@ programs:								      \
 				xanalogtv -root				    \n\
 				abstractile -root			    \n\
 				anemotaxis -root			    \n\
-  GL: 				antinspect -root			    \n\
+- GL: 				antinspect -root			    \n\
 				fireworkx -root				    \n\
 				fuzzyflakes -root			    \n\
 				interaggregate -root			    \n\
@@ -215,7 +218,7 @@ programs:								      \
 - GL: 				providence -root			    \n\
 				substrate -root				    \n\
 				wormhole -root				    \n\
-  GL: 				antmaze -root				    \n\
+- GL: 				antmaze -root				    \n\
   GL: 				boing -root				    \n\
 				boxfit -root				    \n\
   GL: 				carousel -root				    \n\
@@ -259,10 +262,15 @@ programs:								      \
 				tessellimage -root			    \n\
   GL: 				winduprobot -root			    \n\
   GL: 				splitflap -root				    \n\
+  GL: 				cubestack -root				    \n\
+  GL: 				cubetwist -root				    \n\
+  GL: 				discoball -root				    \n\
   GL: 				dymaxionmap -root			    \n\
   GL: 				energystream -root			    \n\
+  GL: 				hexstrut -root				    \n\
   GL: 				hydrostat -root				    \n\
   GL: 				raverhoop -root				    \n\
+  GL: 				splodesic -root				    \n\
   GL: 				unicrud -root				    \n\
 
 
