@@ -5,6 +5,8 @@
 " vimconf is not vi-compatible
 set nocompatible
 
+let &runtimepath.=',~/.vim/bundle/ale'
+
 """ Automatically make needed files and folders on first run
 """ If you don't run *nix you're on your own (as in remove this) {{{
     call system("mkdir -p $HOME/.vim/{swap,undo}")
@@ -84,9 +86,8 @@ set nocompatible
     " Vim signs (:h signs) for modified lines based off VCS (e.g. Git)
     Plugin 'mhinz/vim-signify'
 
-    " Awesome syntax checker.
-    " REQUIREMENTS: See :h syntastic-intro
-    Plugin 'scrooloose/syntastic'
+    " Asynchronous Linting Engine.
+    Plugin 'w0rp/ale'
 
     " Functions, class data etc.
     " REQUIREMENTS: (exuberant)-ctags
@@ -445,9 +446,9 @@ set nocompatible
         " Toggle pastemode, doesn't indent
         set pastetoggle=<F3>
 
-        " Syntastic - toggle error list. Probably should be toggleable.
-        noremap <silent><leader>lo :Errors<CR>
-        noremap <silent><leader>lc :lcl<CR>
+        " ALE keybinds
+        nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+        nmap <silent> <C-j> <Plug>(ale_next_wrap)
     """ }}}
 """ }}}
 """ Plugin settings {{{
@@ -486,21 +487,15 @@ set nocompatible
     let g:tagbar_width = 30
     set tags=tags;/
 
-    " Syntastic - This is largely up to your own usage, and override these
-    "             changes if be needed. This is merely an exemplification.
-    "             TODO: not be filetype, but filename?
-    let g:syntastic_cpp_check_header = 1
-    let g:syntastic_cpp_compiler_options = ' -std=c++0x'
-    let g:syntastic_mode_map = {
-        \ 'mode': 'passive',
-        \ 'active_filetypes':
-        \ ['javascript', 'haskell'] }
-    let g:syntastic_javascript_checkers = ['eslint', 'flow']
-    let g:syntastic_haskell_checkers = ['hlint']
-    let g:syntastic_haskell_hlint_exe = 'stack exec hlint --'
-    let g:syntastic_javascript_flow_exe = 'flow'
-    let g:syntastic_javascript_eslint_exe = 'eslint'
-    let g:syntastic_check_on_open = 0
+    " ALE
+    let g:ale_sign_column_always = 1
+    let g:ale_lint_on_save = 1
+    let g:ale_lint_on_text_changed = 0
+    let g:ale_lint_on_enter = 1
+    let g:ale_linters = {
+    \   'javascript': ['eslint', 'flow'],
+    \   'haskell': ['hlint']
+    \}
 
     " Netrw - the bundled (network) file and directory browser
     let g:netrw_banner = 0
@@ -515,22 +510,24 @@ set nocompatible
     augroup END
 
     """ Lightline {{{
+        let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
         let g:lightline = {
             \ 'colorscheme': 'jellybeans',
             \ 'active': {
             \     'left': [
             \         ['mode', 'paste'],
             \         ['readonly', 'fugitive'],
-            \         ['ctrlpmark', 'filename', 'modified']
+            \         ['ale', 'ctrlpmark', 'filename', 'modified']
             \     ],
             \     'right': [
             \         ['lineinfo'],
             \         ['percent'],
-            \         ['fileformat', 'fileencoding', 'filetype', 'syntastic']
+            \         ['fileformat', 'fileencoding', 'filetype']
             \     ]
             \ },
-            \ 'component': {
-            \     'paste': '%{&paste?"!":""}',
+            \ 'component'   : {
+            \     'lineinfo': ' %3l:%-2v',
+            \     'paste'   : '%{&paste?"!":""}',
             \     'readonly': '%{&readonly?"":""}'
             \ },
             \ 'component_function': {
@@ -544,12 +541,12 @@ set nocompatible
             \     'filetype'     : 'MyFiletype'
             \ },
             \ 'component_expand': {
-            \     'syntastic': 'SyntasticStatuslineFlag',
+            \     'ale'         : 'ALEGetStatusLine',
             \ },
-            \ 'component_type': {
-            \     'syntastic': 'middle',
+            \ 'component_type' : {
+            \     'ale'        : 'error',
             \ },
-            \ 'separator': { 'left': '', 'right': '' },
+            \ 'separator'   : { 'left': '', 'right': '' },
             \ 'subseparator': { 'left': '', 'right': '' }
             \ }
 
@@ -655,16 +652,13 @@ set nocompatible
             return lightline#statusline(0)
         endfunction
 
-        function! s:syntastic()
-            SyntasticCheck
-            call lightline#update()
+        function! ALEGetStatusLine() abort
+            return ale#statusline#Status()
         endfunction
 
-        augroup AutoSyntastic
+        augroup UpdateAleLightLine
             autocmd!
-            execute "autocmd FileType " .
-                        \join(g:syntastic_mode_map["active_filetypes"], ",") .
-                        \" autocmd BufWritePost <buffer> :call s:syntastic()"
+            autocmd User ALELint call lightline#update()
         augroup END
     """ }}}
 """ }}}
