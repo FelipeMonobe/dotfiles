@@ -40,6 +40,9 @@ let &runtimepath.=',~/.vim/bundle/ale'
         endif
     """ }}}
 
+    " NERDTREE
+    Plugin 'scrooloose/nerdtree'
+
     " Edit files using sudo/su
     Plugin 'chrisbra/SudoEdit.vim'
 
@@ -115,6 +118,12 @@ let &runtimepath.=',~/.vim/bundle/ale'
         syntax on                                   " syntax highlighting
         set background=dark                         " we're using a dark bg
         colorscheme jellybeans                      " colorscheme from plugin
+        
+        " NERDTREE for directories
+        autocmd StdinReadPre * let s:std_in=1
+        autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
         """ force behavior and filetypes, and by extension highlighting {{{
             augroup FileTypeRules
                 autocmd!
@@ -269,6 +278,10 @@ let &runtimepath.=',~/.vim/bundle/ale'
 """ }}}
 """ Keybindings {{{
     """ General {{{
+
+        " NERDTREE
+        map <C-n> :NERDTreeToggle<CR>
+
         " Hardcore navigation (no arrows)
         noremap <Up> <NOP>
         noremap <Down> <NOP>
@@ -504,9 +517,8 @@ let &runtimepath.=',~/.vim/bundle/ale'
     \}
 
     " Netrw - the bundled (network) file and directory browser
-    let g:netrw_banner = 0
-    let g:netrw_list_hide = '^\.$'
-    let g:netrw_liststyle = 3
+    "let g:netrw_banner = 0
+    "let g:netrw_list_hide = '^./$'
 
     " Automatically remove preview window after autocomplete (mainly for clang_complete)
     augroup RemovePreview
