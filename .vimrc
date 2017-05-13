@@ -324,6 +324,11 @@ let &runtimepath.=',~/.vim/bundle/ale'
         nnoremap gN :bprevious<CR>
         nnoremap gd :bdelete<CR>
         nnoremap gf <C-^>
+
+        " Location list handling
+        noremap <silent><leader>lo :lop<CR>
+        noremap <silent><leader>lc :lcl<CR>
+
     """ }}}
     """ Functions and/or fancy keybinds {{{{
         """ Vim motion on next found object like ci", but for ([{< etc
@@ -488,6 +493,7 @@ let &runtimepath.=',~/.vim/bundle/ale'
     set tags=tags;/
 
     " ALE
+    let g:ale_set_loclist = 1
     let g:ale_sign_column_always = 1
     let g:ale_lint_on_save = 1
     let g:ale_lint_on_text_changed = 0
