@@ -304,7 +304,7 @@ let &runtimepath.=',~/.vim/bundle/ale'
         noremap <leader>vs :source $HOME/.vimrc<CR>
 
         " Yank(copy) to system clipboard
-        noremap <leader>y "+y
+        vnoremap <leader>y :w !xclip -selection clipboard<CR><CR>
 
         " Toggle folding
         nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
