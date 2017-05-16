@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.36 for xinube on Tue May  9 12:52:51 2017.
+# Written by xscreensaver-demo 5.36 for xinube on Sun May 14 17:02:16 2017.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:10:00
@@ -32,19 +32,19 @@ dpmsOff:	4:00:00
 grabDesktopImages:  False
 grabVideoFrames:    False
 chooseRandomImages: False
-imageDirectory:
+imageDirectory:	
 
 mode:		one
 selected:	0
 
 textMode:	url
 textLiteral:	XScreenSaver
-textFile:
+textFile:	
 textProgram:	fortune
 textURL:	https://en.wikipedia.org/w/index.php?title=Special:NewPages&feed=rss
 
 programs:								      \
-		    "Zombies" 	mplayer -nosound -really-quiet -nolirc	      \
+		     "Zombies" 	mplayer -nosound -really-quiet -nolirc	      \
 				  -nostop-xscreensaver -wid		      \
 				  $XSCREENSAVER_WINDOW -fs -loop 0	      \
 				  $HOME/Downloads/Zombie-Invasion-3.mp4	    \n\

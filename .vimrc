@@ -221,7 +221,6 @@ let &runtimepath.=',~/.vim/bundle/ale'
     """ }}}
 """ }}}
 """ Files {{{
-    set autochdir                                   " always use curr. dir.
     set autoread                                    " refresh if changed
     set confirm                                     " confirm changed files
     set noautowrite                                 " never autowrite
