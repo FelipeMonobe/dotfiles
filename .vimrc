@@ -96,6 +96,9 @@ let &runtimepath.=',~/.vim/bundle/ale'
     " REQUIREMENTS: (exuberant)-ctags
     Plugin 'majutsushi/tagbar'
 
+    " ES6 syntax highlighting
+    Plugin 'othree/yajs.vim'
+
     " Finish Vundle stuff
     call vundle#end()
 
@@ -476,7 +479,7 @@ let &runtimepath.=',~/.vim/bundle/ale'
     let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
     let g:startify_bookmarks = [
         \ $HOME . "/Projects/web",
-        \ $HOME . "/Projects/NOALVO.API", 
+        \ $HOME . "/Projects/api", 
         \ $HOME . "/Projects/foolshop-api",
         \ $HOME . "/Projects/99H",
         \ $HOME . "/Projects/exp_haskell",
@@ -507,8 +510,8 @@ let &runtimepath.=',~/.vim/bundle/ale'
     " ALE
     let g:ale_set_loclist = 1
     let g:ale_sign_column_always = 1
-    let g:ale_lint_on_save = 1
-    let g:ale_lint_on_text_changed = 0
+    let g:ale_lint_on_save = 0
+    let g:ale_lint_on_text_changed = 1
     let g:ale_lint_on_enter = 1
     let g:ale_linters = {
     \   'javascript': ['eslint', 'flow'],
