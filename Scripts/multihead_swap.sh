@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # xrandr wrapper; switch between single/extended/cloned desktop;
 CONFIGURED_DEVICES=($(xrandr|egrep -o '[[:alnum:]]+ [dis]{0,3}connected [0-9]{3,}x[0-9]{3,}'|awk '{echo $1}'))
 CONNECTED_DEVICES=($(xrandr|grep ' connected '|awk '{echo $1}'))
