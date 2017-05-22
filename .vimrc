@@ -482,9 +482,8 @@ let &runtimepath.=',~/.vim/bundle/ale'
         \ $HOME . "/Projects/api", 
         \ $HOME . "/Projects/foolshop-api",
         \ $HOME . "/Projects/99H",
-        \ $HOME . "/Projects/exp_haskell",
-        \ $HOME . "/.vimrc", $HOME . "/.vimrc.first",
-        \ $HOME . "/.vimrc.last", $HOME . "/.vimrc.plugins"
+        \ $HOME . "/.xmonad/xmonad.hs",
+        \ $HOME . "/.xmobarrc",
         \ ]
     let g:startify_custom_header = [
           \ '     ---------------------------------------------',

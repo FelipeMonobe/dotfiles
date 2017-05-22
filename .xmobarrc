@@ -4,7 +4,7 @@ Config { font        = "xft:DejaVuSansMono:size=9:antialias=true"
        , bgColor     = "black"
        , fgColor     = "grey"
        , position    = TopW L 100
-       , commands    = [ Run Network "wlp7s0" ["-t", "<fc=#859900><rx> ↓</fc> <fc=#dc322f><tx> ↑</fc>","-S","True"] 10
+       , commands    = [ Run Network "wlp7s0" ["-t", "<fc=#859900><rx>↓</fc> <fc=#dc322f><tx>↑</fc>","-S","True"] 10
                        , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
                        , Run Memory ["-t","Mem: <usedratio>%"] 10
                        , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
@@ -27,7 +27,7 @@ Config { font        = "xft:DejaVuSansMono:size=9:antialias=true"
                                      , "-O"	
                                      , "<fc=#dAA520>Charging</fc>"
                                      , "-i"	
-                                     , "<fc=#006000>Charged</fc>"
+                                     , "<fc=#006000>AC</fc>"
                                      ] 50
                        ]
         , sepChar          = "%"
