@@ -19,7 +19,6 @@ main = do
     xmonad $ desktopConfig {
         manageHook   = manageDocks <+> myManageHook
         , layoutHook = desktopLayoutModifiers $ layoutHook desktopConfig
---        , layoutHook = avoidStruts $ layoutHook defaultConfig
         , logHook    = dynamicLogWithPP xmobarPP
                        { ppOutput = hPutStrLn xmproc
                        , ppTitle  = xmobarColor "green" "" . shorten 30
