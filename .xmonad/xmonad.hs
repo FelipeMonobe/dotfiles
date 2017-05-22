@@ -5,15 +5,23 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
+myManageHook = composeAll
+  [ resource =? "gimp"      --> doFloat
+  , resource =? "chromium"  --> doShift "1"
+  , resource =? "franz"     --> doShift "4"
+  , resource =? "Studio 3T" --> doShift "5"
+  , resource =? "spotify"   --> doShift "9"
+  ]
+
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig {
-          manageHook = manageDocks <+> manageHook defaultConfig
+        manageHook   = manageDocks <+> myManageHook
         , layoutHook = avoidStruts $ layoutHook defaultConfig
         , logHook    = dynamicLogWithPP xmobarPP
-                        { ppOutput = hPutStrLn xmproc
-                        , ppTitle  = xmobarColor "green" "" . shorten 50
-                        }
+                       { ppOutput = hPutStrLn xmproc
+                       , ppTitle  = xmobarColor "green" "" . shorten 30
+                       }
         , modMask            = mod4Mask
         , borderWidth        = 2
         , terminal           = "termite"
