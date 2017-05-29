@@ -9,6 +9,7 @@ import System.IO
 myManageHook = composeAll
   [ resource =? "gimp"      --> doFloat
   , resource =? "chromium"  --> doShift "1"
+  , resource =? "atom"      --> doShift "2"
   , resource =? "franz"     --> doShift "4"
   , resource =? "Studio 3T" --> doShift "5"
   , resource =? "spotify"   --> doShift "9"
