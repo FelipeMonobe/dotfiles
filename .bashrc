@@ -16,8 +16,8 @@ screenfetch
 XSH_PATH="~/Projects/bash-scripts"
 
 # overwrite commands
-alias mongod="mongod --dbpath=/var/lib/mongodb"
-alias redis="systemctl start redis.service && echo ok"
+alias mongod="sudo mongod --dbpath=/var/lib/mongodb"
+alias redis="sudo systemctl start redis.service && echo ok"
 
 # do setup
 alias xsh-multihead="$XSH_PATH/multihead.sh"
