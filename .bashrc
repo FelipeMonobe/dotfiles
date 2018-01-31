@@ -16,7 +16,7 @@ screenfetch
 XSH_PATH="~/Projects/bash-scripts"
 
 # overwrite commands
-alias mongod="sudo mongod --dbpath=/var/lib/mongodb"
+alias mongod="mongod --fork --dbpath /data/db --logpath /data/db/mongodb.log --directoryperdb --wiredTigerDirectoryForIndexes"
 alias redis="sudo systemctl start redis.service && echo ok"
 
 # do setup
